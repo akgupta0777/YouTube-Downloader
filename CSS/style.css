@@ -10,15 +10,22 @@ img{
 
 h1{
     display: inline-block;
-    color: aquamarine;
-    position: relative;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: calc();
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;    position: relative;
     bottom: .2em;
  
 }
 
-
-
-
+input[type=text]::placeholder{
+    text-align: center;
+    color: grey;
+}
 
 .btn{
     font-size: 1em;
@@ -91,6 +98,11 @@ input[type=text]{
 
 .footer{
    color: white;
+   position: relative;
+   bottom: 0%;
+   left: 0%;
+   width: 100%;
+   text-align: center;
 }
 
 .theme em{
