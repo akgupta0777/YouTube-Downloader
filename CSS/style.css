@@ -4,6 +4,22 @@ body{
     text-align: center;
 }
 
+.devs {
+    display: flex;
+    position: relative;
+    left: 25%;
+    justify-content: space-around;
+    text-align: center;
+    width: 50%;
+}
+
+img.avatar {
+    object-fit: cover;
+    border-radius:50%;
+    width: 50px;
+    height: 50px;
+  }
+
 .gradient-text {
     height: 2em;
     background-image: linear-gradient(45deg,#ff61d3 10%,#b318ff 40%,#b318ff 60%,#00f0ff 90%);
