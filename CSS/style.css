@@ -1,9 +1,20 @@
 body{
     margin: 0;
-    background-color: #212529;
+    background-color: #000000;
     text-align: center;
-    font-family: "archivo",sans-serif;
 }
+
+.gradient-text {
+    height: 2em;
+    background-image: linear-gradient(45deg,#ff61d3 10%,#b318ff 40%,#b318ff 60%,#00f0ff 90%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: calc();
+}
+
 
 img{
     width: 100%;
@@ -11,16 +22,11 @@ img{
 
 h1{
     display: inline-block;
-    background-color: #f3ec78;
-    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: calc();
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;    position: relative;
+    font-family: "Archivo Black", sans-serif;
+    position: relative;
     bottom: .2em;
- 
+    font-size: 1.9em;
+    font-weight:normal;  
 }
 
 input[type=text]::placeholder{
