@@ -32,6 +32,11 @@ h1{
 input[type=text]::placeholder{
     text-align: center;
     color: grey;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+p{
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .btn{
