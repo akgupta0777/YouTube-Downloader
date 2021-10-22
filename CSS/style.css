@@ -2,15 +2,19 @@ body{
     margin: 0;
     background-color: #000000;
     text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
-.devs {
-    display: flex;
-    position: relative;
-    left: 25%;
-    justify-content: space-around;
+
+div.item{
+    vertical-align: top;
+    display: inline-block;
     text-align: center;
-    width: 50%;
+    width: 70px;
+}
+
+.caption{
+    display: block;
 }
 
 img.avatar {
@@ -48,10 +52,6 @@ h1{
 input[type=text]::placeholder{
     text-align: center;
     color: grey;
-    font-family: 'Josefin Sans', sans-serif;
-}
-
-p{
     font-family: 'Josefin Sans', sans-serif;
 }
 
