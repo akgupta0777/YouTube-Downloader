@@ -5,3 +5,4 @@ const Host = `https://ytytd.herokuapp.com/`
 //                 .then((res) => res.text())
 //                 .then((data) => console.log(data));
 
+console.log(process.env.ENV2);
