@@ -8,6 +8,9 @@ body{
 div#videos{
     display: none;
 }
+div#error{
+    display: none;
+}
 .title{
     color:white;
 }
