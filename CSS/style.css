@@ -150,6 +150,39 @@ input[type=text]{
     font-size: 1.2em;
 }
 
+.looking{
+    background: #f8aa00;
+    
+}
+
+.available{
+    background: #11ca4c;
+}
+
+.down{
+    background: #c00;
+}
+
+.API-Indicator{
+    
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.status{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+#status-text{
+    padding-right: 10px;
+}
+
 @media only screen and (max-width: 347px) {
     h1{
         width: min-content;

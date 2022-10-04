@@ -1,6 +1,8 @@
 const URLInput = document.getElementById("URL-input");
-const Download = document.querySelector("button");
-const Host = `https://ytytd.herokuapp.com`;
+const download = document.querySelector("button");
+const indicator = document.querySelector("#indicator");
+const statusText = document.querySelector("#status-text")
+const HOST = `https://ytytd.herokuapp.com`;
 const formatInfo = {
     'mp4':'video',
     '3gp':'video',
@@ -12,9 +14,22 @@ const formatInfo = {
     'aac':'audio',
     'm4a':'audio'
 };
-const wakeup = fetch(Host)
+const wakeup = fetch(HOST)
                 .then((res) => res.text())
-                .then((data) => console.log('services started'));
+                .then((data) => {
+                    indicator.classList.remove("looking");
+                    if(!data){ 
+                        indicator.classList.add("down");
+                        statusText.textContent="API Status : Down"
+                    }else{
+                        indicator.classList.add("available");
+                        statusText.textContent="API Status : Available "
+                    }
+                }).catch((err)=>{
+                    indicator.classList.remove("looking");
+                    indicator.classList.add("down");
+                    statusText.textContent="API Status : Down "
+                }); 
 
 const loadVideo = async () => {
     try{
@@ -22,7 +37,7 @@ const loadVideo = async () => {
         document.querySelector('div#videos').style.display = 'none';
         document.querySelector('div.animation').style.display = 'block';
         const url = URLInput.value;
-        const videoInfo = await fetch(`${Host}/getVideo?url=${url}`)
+        const videoInfo = await fetch(`${HOST}/getVideo?url=${url}`)
                         .then((res) => res.json());
         if(videoInfo.error){
             document.querySelector('div.animation').style.display = 'none';
@@ -52,7 +67,7 @@ const loadVideo = async () => {
         const videos = videoInfo[1];
         videos.forEach(media => {
             let {value,format,size} = media;
-            const link = `${Host}/download?url=${url}&v=${value}&f=${format}`;
+            const link = `${HOST}/download?url=${url}&v=${value}&f=${format}`;
             if(!!formatInfo[media.format]){
                 let HTML = `
                 <tr>
@@ -86,11 +101,13 @@ const loadVideo = async () => {
         document.querySelector('div.animation').style.display = 'none';
         document.querySelector('div#videos').style.display = 'block'
     }catch{
-
+        document.querySelector('div.animation').style.display = 'none';
+        document.querySelector('div#error').style.display = 'block';
+        return ;
     }
 }
 
-Download.addEventListener('click',loadVideo);
+download.addEventListener('click',loadVideo);
 URLInput.addEventListener('keyup',(event) => {
     if(event.keyCode === 13){
         event.preventDefault();
