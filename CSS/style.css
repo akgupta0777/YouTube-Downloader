@@ -183,6 +183,10 @@ input[type=text]{
     padding-right: 10px;
 }
 
+#exhausted{
+    display: none;
+}
+
 @media only screen and (max-width: 347px) {
     h1{
         width: min-content;
@@ -191,9 +195,7 @@ input[type=text]{
     img{
         position: relative;
         bottom: 1em;
-
     }
-   
   }
 
   @media only screen and (max-width: 227px){
