@@ -3,7 +3,7 @@ const download = document.querySelector("button");
 const indicator = document.querySelector("#indicator");
 const statusText = document.querySelector("#status-text");
 const error = document.querySelector('div#error');
-const videos = document.querySelector('div#videos');
+const videoInfoDiv = document.querySelector('div#videos');
 const animation = document.querySelector('div.animation');
 const HOST = `https://ytytd.herokuapp.com`;
 let Exhausted = false;
@@ -42,15 +42,18 @@ const wakeup = fetch(HOST)
                 }); 
 
 const loadVideo = async () => {
-    if(Exhausted) return;
     try{
+        if(Exhausted){
+            return;
+        } 
         error.style.display = 'none';
-        videos.style.display = 'none';
+        videoInfoDiv.style.display = 'none';
         animation.style.display = 'block';
         const url = URLInput.value;
         const videoInfo = await fetch(`${HOST}/getVideo?url=${url}`)
                         .then((res) => res.json());
         if(videoInfo.error){
+            console.log(videoInfo);
             animation.style.display = 'none';
             error.style.display = 'block';
             return ;
@@ -110,10 +113,11 @@ const loadVideo = async () => {
         videoTable.innerHTML = videoHTML;
         audioTable.innerHTML = audioHTML;
         animation.style.display = 'none';
-        videos.style.display = 'block'
-    }catch{
+        videoInfoDiv.style.display = 'block'
+    }catch(err){
         animation.style.display = 'none';
         error.style.display = 'block';
+        console.log(err)
         return ;
     }
 }
